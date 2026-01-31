@@ -11,6 +11,7 @@ import SkillBar from "@/components/portfolio/SkillBar";
 import HeroParticles from "@/components/portfolio/HeroParticles";
 import ResumeCard from "@/components/portfolio/ResumeCard";
 import FuturisticOverlay from "@/components/portfolio/FuturisticOverlay";
+import BackgroundThreeCards from "@/components/portfolio/BackgroundThreeCards";
 import projectRealEstate from "@/assets/project-real-estate.jpg";
 import projectTrendForge from "@/assets/project-trendforge.jpg";
 import { cn } from "@/lib/utils";
@@ -173,7 +174,12 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="relative min-h-screen bg-background overflow-hidden">
+      {/* Full-page 3D floating cards background */}
+      <div className="pointer-events-none fixed inset-0 -z-10">
+        <BackgroundThreeCards />
+      </div>
+
       <PortfolioNav />
 
       {/* Hero */}
