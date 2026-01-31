@@ -71,6 +71,18 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
+        "fade-up": {
+          "0%": { opacity: "0", transform: "translate3d(0, 14px, 0)" },
+          "100%": { opacity: "1", transform: "translate3d(0, 0, 0)" },
+        },
+        "fade-up-sm": {
+          "0%": { opacity: "0", transform: "translate3d(0, 8px, 0)" },
+          "100%": { opacity: "1", transform: "translate3d(0, 0, 0)" },
+        },
+        "pop-in": {
+          "0%": { opacity: "0", transform: "scale(0.96)" },
+          "100%": { opacity: "1", transform: "scale(1)" },
+        },
         float: {
           "0%, 100%": { transform: "translate3d(0, 0, 0)" },
           "50%": { transform: "translate3d(0, -14px, 0)" },
@@ -101,6 +113,9 @@ export default {
         },
       },
       animation: {
+        "fade-up": "fade-up 700ms cubic-bezier(0.2, 0.8, 0.2, 1) both",
+        "fade-up-sm": "fade-up-sm 600ms cubic-bezier(0.2, 0.8, 0.2, 1) both",
+        "pop-in": "pop-in 520ms cubic-bezier(0.2, 0.8, 0.2, 1) both",
         float: "float 7s ease-in-out infinite",
         drift: "drift 18s ease-in-out infinite alternate",
         shimmer: "shimmer 4s ease-in-out infinite alternate",

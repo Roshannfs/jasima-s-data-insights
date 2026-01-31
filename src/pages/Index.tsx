@@ -152,8 +152,21 @@ const Index = () => {
       const my = ((e.clientY - r.top) / r.height) * 100;
       el.style.setProperty("--mx", `${mx}%`);
       el.style.setProperty("--my", `${Math.min(60, my)}%`);
+
+      // Subtle 3D tilt for the portrait card
+      const dx = (e.clientX - (r.left + r.width / 2)) / r.width;
+      const dy = (e.clientY - (r.top + r.height / 2)) / r.height;
+      const rx = Math.max(-1, Math.min(1, -dy)) * 4; // degrees
+      const ry = Math.max(-1, Math.min(1, dx)) * 5; // degrees
+      el.style.setProperty("--rx", `${rx}deg`);
+      el.style.setProperty("--ry", `${ry}deg`);
     };
     el.addEventListener("pointermove", onMove);
+    const onLeave = () => {
+      el.style.setProperty("--rx", `0deg`);
+      el.style.setProperty("--ry", `0deg`);
+    };
+    el.addEventListener("pointerleave", onLeave);
     return () => el.removeEventListener("pointermove", onMove);
   }, []);
 
@@ -173,23 +186,28 @@ const Index = () => {
         <div className="container-portfolio relative section-pad pt-12 md:pt-20">
           <div className="grid items-center gap-10 md:grid-cols-2">
             <div className="space-y-6">
-              <div className="inline-flex items-center gap-3 rounded-full border border-border/70 bg-surface/40 px-4 py-2 text-xs text-muted-foreground backdrop-blur-sm">
+              <div className="inline-flex items-center gap-3 rounded-full border border-border/70 bg-surface/40 px-4 py-2 text-xs text-muted-foreground backdrop-blur-sm animate-fade-up-sm">
                 <span className="h-2 w-2 rounded-full bg-brand-teal shadow-[0_0_0_6px_hsl(var(--brand-teal)/0.10)]" />
                 Available for internships & entry-level roles
                 <span className="hidden sm:inline">•</span>
                 <span className="hidden sm:inline">Trichy, India</span>
               </div>
 
-              <p className="text-sm font-medium tracking-[0.18em] text-muted-foreground">HI, I’M</p>
-              <h1 className="text-4xl font-semibold tracking-tight md:text-6xl">
+              <div className="space-y-2 animate-fade-up [animation-delay:80ms]">
+                <p className="text-sm font-medium tracking-[0.18em] text-muted-foreground">HI, I’M</p>
+                <h1 className="text-4xl font-semibold tracking-tight md:text-6xl">
                 Jasima <span className="gradient-text">Jasmine</span>
-              </h1>
-              <p className="text-lg text-muted-foreground md:text-xl">Data Analyst & AI Enthusiast</p>
-              <p className="max-w-xl text-muted-foreground">
-                Turning data into impactful insights — from clean preprocessing to crisp dashboards and meaningful patterns.
-              </p>
+                </h1>
+              </div>
 
-              <div className="flex flex-col gap-3 sm:flex-row">
+              <div className="space-y-3 animate-fade-up [animation-delay:140ms]">
+                <p className="text-lg text-muted-foreground md:text-xl">Data Analyst & AI Enthusiast</p>
+                <p className="max-w-xl text-muted-foreground">
+                  Turning data into impactful insights — from clean preprocessing to crisp dashboards and meaningful patterns.
+                </p>
+              </div>
+
+              <div className="flex flex-col gap-3 sm:flex-row animate-fade-up [animation-delay:220ms]">
                 <Button asChild variant="hero" size="lg">
                   <a href="#contact">Hire Me</a>
                 </Button>
@@ -200,7 +218,7 @@ const Index = () => {
                 </Button>
               </div>
 
-              <div className="flex flex-wrap items-center gap-2">
+              <div className="flex flex-wrap items-center gap-2 animate-fade-up [animation-delay:300ms]">
                 {socials.map((s) => (
                   <Button key={s.label} asChild variant="soft" size="sm">
                     <a href={s.href} aria-label={s.label}>
@@ -214,7 +232,15 @@ const Index = () => {
 
             <div className="relative">
               <div className="absolute -inset-6 rounded-[2rem] opacity-70 blur-2xl [background:radial-gradient(600px_circle_at_50%_30%,hsl(var(--brand-teal)/0.25),transparent_60%),radial-gradient(600px_circle_at_70%_20%,hsl(var(--brand-rose)/0.22),transparent_60%)]" />
-              <div className="glass gradient-border relative overflow-hidden rounded-[2rem] transition-transform duration-300 ease-out hover:scale-[1.01]">
+              <div
+                className={cn(
+                  "glass gradient-border relative overflow-hidden rounded-[2rem]",
+                  "transition-transform duration-300 ease-out",
+                  "hover:scale-[1.01]",
+                  "[transform:perspective(900px)_rotateX(var(--rx,0deg))_rotateY(var(--ry,0deg))]",
+                  "animate-pop-in [animation-delay:140ms]",
+                )}
+              >
                 <img
                   src={jasimaPortrait}
                   alt="Professional portrait of Jasima Jasmine"
@@ -231,7 +257,7 @@ const Index = () => {
                   label="CGPA"
                   value="8.54"
                   hint="AI & Data Science"
-                  className="w-[220px] animate-fade-in"
+                  className="w-[220px] animate-pop-in [animation-delay:240ms]"
                 />
               </div>
               <div className="pointer-events-none absolute -right-6 top-20 hidden md:block">
@@ -240,7 +266,7 @@ const Index = () => {
                   label="Experience"
                   value="5 Internships"
                   hint="AI • ML • Analytics"
-                  className="w-[240px] animate-fade-in"
+                  className="w-[240px] animate-pop-in [animation-delay:320ms]"
                 />
               </div>
               <div className="pointer-events-none absolute -bottom-6 left-6 right-6 hidden md:block">
