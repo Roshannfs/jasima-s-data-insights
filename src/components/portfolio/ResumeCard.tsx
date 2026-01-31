@@ -13,7 +13,7 @@ export default function ResumeCard() {
       viewport={{ once: true, amount: 0.25 }}
       transition={{ duration: 0.7, ease: [0.2, 0.8, 0.2, 1] }}
     >
-      <Card className="glass gradient-border overflow-hidden">
+      <Card className="glass gradient-border futuristic-frame overflow-hidden">
         <div className="relative">
           <div className="absolute inset-0 opacity-70 [background:radial-gradient(700px_circle_at_20%_20%,hsl(var(--brand-teal)/0.18),transparent_60%),radial-gradient(700px_circle_at_80%_10%,hsl(var(--brand-rose)/0.16),transparent_60%)]" />
           <CardHeader className="relative">
