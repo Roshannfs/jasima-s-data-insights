@@ -1,10 +1,21 @@
-import Particles from "react-tsparticles";
-import { loadFull } from "tsparticles";
-import { useCallback, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
+import Particles from "@tsparticles/react";
+import { initParticlesEngine } from "@tsparticles/react";
+import { loadSlim } from "@tsparticles/slim";
 
 export default function HeroParticles() {
-  const init = useCallback(async (engine: any) => {
-    await loadFull(engine);
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    let cancelled = false;
+    initParticlesEngine(async (engine) => {
+      await loadSlim(engine);
+    }).then(() => {
+      if (!cancelled) setReady(true);
+    });
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   const options = useMemo(
@@ -48,9 +59,11 @@ export default function HeroParticles() {
     [],
   );
 
+  if (!ready) return null;
+
   return (
     <div className="absolute inset-0">
-      <Particles id="hero-particles" init={init} options={options as any} className="h-full w-full" />
+      <Particles id="hero-particles" options={options as any} className="h-full w-full" />
     </div>
   );
 }
