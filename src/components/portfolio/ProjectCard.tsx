@@ -8,14 +8,24 @@ type Props = {
   description: string;
   tools: string[];
   outcome: string;
+  highlights?: string[];
   imageSrc: string;
   href?: string;
   className?: string;
 };
 
-export default function ProjectCard({ title, description, tools, outcome, imageSrc, href = "#contact", className }: Props) {
+export default function ProjectCard({
+  title,
+  description,
+  tools,
+  outcome,
+  highlights,
+  imageSrc,
+  href = "#contact",
+  className,
+}: Props) {
   return (
-    <Card className={cn("glass gradient-border overflow-hidden", className)}>
+    <Card className={cn("glass gradient-border overflow-hidden transition-transform duration-300 hover:translate-y-[-2px]", className)}>
       <div className="relative">
         <img
           src={imageSrc}
@@ -30,6 +40,7 @@ export default function ProjectCard({ title, description, tools, outcome, imageS
       </CardHeader>
       <CardContent className="space-y-4">
         <p className="text-sm text-muted-foreground">{description}</p>
+
         <div className="flex flex-wrap gap-2">
           {tools.map((t) => (
             <span
@@ -40,6 +51,15 @@ export default function ProjectCard({ title, description, tools, outcome, imageS
             </span>
           ))}
         </div>
+
+        {highlights?.length ? (
+          <ul className="list-disc space-y-1 pl-4 text-sm text-muted-foreground">
+            {highlights.map((h) => (
+              <li key={h}>{h}</li>
+            ))}
+          </ul>
+        ) : null}
+
         <p className="text-sm">
           <span className="text-muted-foreground">Outcome:</span> {outcome}
         </p>
