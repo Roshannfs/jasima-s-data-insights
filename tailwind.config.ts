@@ -71,6 +71,14 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
+        "spin-slow": {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
+        },
+        scan: {
+          "0%": { transform: "translateX(-140%)" },
+          "100%": { transform: "translateX(140%)" },
+        },
         "fade-up": {
           "0%": { opacity: "0", transform: "translate3d(0, 14px, 0)" },
           "100%": { opacity: "1", transform: "translate3d(0, 0, 0)" },
@@ -113,6 +121,8 @@ export default {
         },
       },
       animation: {
+        "spin-slow": "spin-slow 18s linear infinite",
+        scan: "scan 2.8s ease-in-out infinite",
         "fade-up": "fade-up 700ms cubic-bezier(0.2, 0.8, 0.2, 1) both",
         "fade-up-sm": "fade-up-sm 600ms cubic-bezier(0.2, 0.8, 0.2, 1) both",
         "pop-in": "pop-in 520ms cubic-bezier(0.2, 0.8, 0.2, 1) both",
