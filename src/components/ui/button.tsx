@@ -10,7 +10,15 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default: "bg-primary text-primary-foreground hover:bg-primary/90",
-        hero: "btn-gradient text-primary-foreground shadow-[0_18px_60px_-30px_hsl(var(--shadow-color)/0.9)] hover:opacity-95",
+        hero:
+          "relative overflow-hidden btn-gradient text-primary-foreground shadow-[0_18px_60px_-30px_hsl(var(--shadow-color)/0.9)] " +
+          "transition-[transform,filter,opacity] duration-300 will-change-transform " +
+          "hover:opacity-95 hover:translate-y-[-1px] hover:[filter:blur(0.15px)] " +
+          "before:absolute before:inset-0 before:opacity-0 before:transition-opacity before:duration-300 " +
+          "before:[background:linear-gradient(110deg,transparent,hsla(0,0%,100%,0.18),transparent)] " +
+          "before:translate-x-[-120%] hover:before:opacity-100 hover:before:translate-x-[120%] before:duration-700 " +
+          "after:absolute after:inset-[-2px] after:-z-10 after:opacity-70 after:blur-xl " +
+          "after:[background:radial-gradient(60%_60%_at_50%_50%,hsl(var(--brand-teal)/0.35),transparent_70%),radial-gradient(60%_60%_at_60%_50%,hsl(var(--brand-rose)/0.30),transparent_70%)]",
         soft: "btn-gradient-soft text-foreground hover:bg-accent",
         outlineGlow:
           "border border-border/70 bg-background/40 text-foreground hover:bg-accent/60 shadow-[0_0_0_1px_hsl(var(--brand-teal)/0.15),0_0_0_1px_hsl(var(--brand-rose)/0.12)]",

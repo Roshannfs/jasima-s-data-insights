@@ -9,6 +9,9 @@ import ProjectCard from "@/components/portfolio/ProjectCard";
 import SectionHeading from "@/components/portfolio/SectionHeading";
 import SkillBar from "@/components/portfolio/SkillBar";
 import HeroKpi from "@/components/portfolio/HeroKpi";
+import HeroParticles from "@/components/portfolio/HeroParticles";
+import HeroThreeIcons from "@/components/portfolio/HeroThreeIcons";
+import ResumeCard from "@/components/portfolio/ResumeCard";
 import jasimaPortrait from "@/assets/jasima-portrait.jpg";
 import projectRealEstate from "@/assets/project-real-estate.jpg";
 import projectTrendForge from "@/assets/project-trendforge.jpg";
@@ -30,6 +33,7 @@ import {
 } from "lucide-react";
 import { useEffect, useMemo, useRef } from "react";
 import { useReveal } from "@/hooks/use-reveal";
+import { motion, useReducedMotion } from "framer-motion";
 
 const experiences: ExperienceItem[] = [
   {
@@ -112,6 +116,7 @@ function RevealSection({ id, className, children }: { id: string; className?: st
 
 const Index = () => {
   const heroRef = useRef<HTMLElement | null>(null);
+  const reduceMotion = useReducedMotion();
 
   useEffect(() => {
     document.title = "Jasima Jasmine | Data Analyst & AI Enthusiast";
@@ -182,7 +187,13 @@ const Index = () => {
         }}
         className="relative overflow-hidden"
       >
+        <div className="pointer-events-none absolute inset-0">
+          <HeroParticles />
+        </div>
         <DataBackdrop />
+        <div className="pointer-events-none absolute inset-0 hidden md:block">
+          <HeroThreeIcons />
+        </div>
         <div className="container-portfolio relative section-pad pt-12 md:pt-20">
           <div className="grid items-center gap-10 md:grid-cols-2">
             <div className="space-y-6">
@@ -300,72 +311,87 @@ const Index = () => {
             subtitle="I enjoy the full data journey — from messy raw files to clean visuals and practical insights that support confident decisions."
           />
           <div className="grid gap-6 md:grid-cols-3">
-            <Card className="glass gradient-border md:col-span-2">
-              <CardHeader>
-                <CardTitle className="text-xl">Profile</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-3 text-muted-foreground">
-                <p>
-                  I’m Jasima Jasmine — an aspiring Data Analyst and AI & Data Science student who loves exploring complex datasets,
-                  spotting patterns, and turning raw information into a story people can act on.
-                </p>
-                <p>
-                  I focus on strong fundamentals: clean data, thoughtful analysis, clear visuals, and simple explanations. I’m actively
-                  growing through internships and projects that build real-world confidence.
-                </p>
-
-                <div className="flex flex-wrap gap-2 pt-2">
-                  {[
-                    "Data cleaning",
-                    "EDA",
-                    "Dashboard thinking",
-                    "Visualization",
-                    "ML basics",
-                    "Insight writing",
-                  ].map((chip) => (
-                    <span
-                      key={chip}
-                      className="rounded-full border border-border/70 bg-surface/50 px-3 py-1 text-xs text-muted-foreground"
-                    >
-                      {chip}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="mt-5 rounded-2xl border border-border/70 bg-surface/40 p-4">
-                  <p className="text-sm font-medium text-foreground">Career objective</p>
-                  <p className="mt-1 text-sm text-muted-foreground">
-                    To contribute to data-driven decision making by delivering accurate analysis, clear dashboards, and actionable insights
-                    — while continuously improving my technical and analytical skills.
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="glass gradient-border">
-              <CardHeader>
-                <CardTitle className="text-xl">Education</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-2 text-sm">
-                <p className="font-medium">B.Tech – Artificial Intelligence & Data Science</p>
-                <p className="text-muted-foreground">M.A.M College of Engineering and Technology</p>
-                <div className="mt-3 space-y-1 text-muted-foreground">
+            <motion.div
+              initial={reduceMotion ? undefined : { opacity: 0, y: 16 }}
+              whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.22 }}
+              transition={{ duration: 0.75, ease: [0.2, 0.8, 0.2, 1] }}
+              className="md:col-span-2"
+            >
+              <Card className="glass gradient-border">
+                <CardHeader>
+                  <CardTitle className="text-xl">Profile</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-3 text-muted-foreground">
                   <p>
-                    <span className="text-foreground">CGPA:</span> 8.54
+                    I’m Jasima Jasmine — an aspiring Data Analyst and AI & Data Science student who loves exploring complex datasets,
+                    spotting patterns, and turning raw information into a story people can act on.
                   </p>
                   <p>
-                    <span className="text-foreground">Expected Graduation:</span> 2026
+                    I focus on strong fundamentals: clean data, thoughtful analysis, clear visuals, and simple explanations. I’m actively
+                    growing through internships and projects that build real-world confidence.
                   </p>
-                </div>
 
-                <div className="mt-5 rounded-2xl border border-border/70 bg-surface/40 p-4">
-                  <p className="text-sm font-medium text-foreground">What I’m building</p>
-                  <p className="mt-1 text-sm text-muted-foreground">
-                    Strong foundations in analytics + practical project work focused on clarity and business-ready outputs.
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
+                  <div className="flex flex-wrap gap-2 pt-2">
+                    {[
+                      "Data cleaning",
+                      "EDA",
+                      "Dashboard thinking",
+                      "Visualization",
+                      "ML basics",
+                      "Insight writing",
+                    ].map((chip) => (
+                      <span
+                        key={chip}
+                        className="rounded-full border border-border/70 bg-surface/50 px-3 py-1 text-xs text-muted-foreground"
+                      >
+                        {chip}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="mt-5 rounded-2xl border border-border/70 bg-surface/40 p-4">
+                    <p className="text-sm font-medium text-foreground">Career objective</p>
+                    <p className="mt-1 text-sm text-muted-foreground">
+                      To contribute to data-driven decision making by delivering accurate analysis, clear dashboards, and actionable insights
+                      — while continuously improving my technical and analytical skills.
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            <motion.div
+              initial={reduceMotion ? undefined : { opacity: 0, y: 16 }}
+              whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.22 }}
+              transition={{ duration: 0.75, delay: 0.08, ease: [0.2, 0.8, 0.2, 1] }}
+            >
+              <Card className="glass gradient-border">
+                <CardHeader>
+                  <CardTitle className="text-xl">Education</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-2 text-sm">
+                  <p className="font-medium">B.Tech – Artificial Intelligence & Data Science</p>
+                  <p className="text-muted-foreground">M.A.M College of Engineering and Technology</p>
+                  <div className="mt-3 space-y-1 text-muted-foreground">
+                    <p>
+                      <span className="text-foreground">CGPA:</span> 8.54
+                    </p>
+                    <p>
+                      <span className="text-foreground">Expected Graduation:</span> 2026
+                    </p>
+                  </div>
+
+                  <div className="mt-5 rounded-2xl border border-border/70 bg-surface/40 p-4">
+                    <p className="text-sm font-medium text-foreground">Achievements</p>
+                    <p className="mt-1 text-sm text-muted-foreground">
+                      Internship experience across AI, ML, analytics, and reporting — always with clarity-first outputs.
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
           </div>
         </RevealSection>
 
@@ -451,6 +477,15 @@ const Index = () => {
               imageSrc={projectTrendForge}
             />
           </div>
+        </RevealSection>
+
+        {/* Resume */}
+        <RevealSection id="resume" className="container-portfolio">
+          <SectionHeading
+            eyebrow="RESUME"
+            title="Download my resume"
+            subtitle="A quick PDF version of my profile, education, skills, and experience — ready to share." />
+          <ResumeCard />
         </RevealSection>
 
         {/* Services */}
