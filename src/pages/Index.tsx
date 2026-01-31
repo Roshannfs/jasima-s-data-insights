@@ -8,7 +8,6 @@ import PortfolioNav from "@/components/portfolio/PortfolioNav";
 import ProjectCard from "@/components/portfolio/ProjectCard";
 import SectionHeading from "@/components/portfolio/SectionHeading";
 import SkillBar from "@/components/portfolio/SkillBar";
-import HeroKpi from "@/components/portfolio/HeroKpi";
 import HeroParticles from "@/components/portfolio/HeroParticles";
 import ResumeCard from "@/components/portfolio/ResumeCard";
 import FuturisticOverlay from "@/components/portfolio/FuturisticOverlay";
@@ -20,10 +19,8 @@ import {
   BarChart3,
   Brain,
   Briefcase,
-  Calendar,
   Database,
   Github,
-  GraduationCap,
   LineChart,
   Linkedin,
   Mail,
@@ -258,43 +255,6 @@ const Index = () => {
                   loading="eager"
                 />
                 <div className="absolute inset-0 opacity-35 [background:radial-gradient(700px_circle_at_20%_10%,hsl(var(--brand-teal)/0.18),transparent_55%),radial-gradient(700px_circle_at_80%_20%,hsl(var(--brand-rose)/0.16),transparent_55%)]" />
-              </div>
-
-              {/* Floating KPI cards */}
-              <div className="pointer-events-none absolute -left-6 top-10 hidden md:block">
-                <HeroKpi
-                  icon={GraduationCap}
-                  label="CGPA"
-                  value="8.54"
-                  hint="AI & Data Science"
-                  className="w-[220px] animate-pop-in animate-float [animation-delay:240ms]"
-                />
-              </div>
-              <div className="pointer-events-none absolute -right-6 top-20 hidden md:block">
-                <HeroKpi
-                  icon={Briefcase}
-                  label="Experience"
-                  value="5 Internships"
-                  hint="AI • ML • Analytics"
-                  className="w-[240px] animate-pop-in animate-float [animation-delay:320ms]"
-                />
-              </div>
-              <div className="pointer-events-none absolute -bottom-6 left-6 right-6 hidden md:block">
-                <div className="grid gap-3 md:grid-cols-2">
-                  <div className="glass gradient-border rounded-2xl p-4">
-                    <p className="text-sm font-medium">Analytical mindset • Curious learner</p>
-                    <p className="mt-1 text-sm text-muted-foreground">Exploring patterns in data to build clear decisions.</p>
-                  </div>
-                  <div className="glass gradient-border rounded-2xl p-4">
-                    <div className="flex items-center justify-between">
-                      <p className="text-sm font-medium">Expected graduation</p>
-                      <span className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-surface/40 px-3 py-1 text-xs text-muted-foreground">
-                        <Calendar className="h-4 w-4" /> 2026
-                      </span>
-                    </div>
-                    <p className="mt-1 text-sm text-muted-foreground">Actively building projects in analytics & AI.</p>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
