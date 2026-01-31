@@ -257,7 +257,7 @@ const Index = () => {
                   label="CGPA"
                   value="8.54"
                   hint="AI & Data Science"
-                  className="w-[220px] animate-pop-in [animation-delay:240ms]"
+                  className="w-[220px] animate-pop-in animate-float [animation-delay:240ms]"
                 />
               </div>
               <div className="pointer-events-none absolute -right-6 top-20 hidden md:block">
@@ -266,7 +266,7 @@ const Index = () => {
                   label="Experience"
                   value="5 Internships"
                   hint="AI • ML • Analytics"
-                  className="w-[240px] animate-pop-in [animation-delay:320ms]"
+                  className="w-[240px] animate-pop-in animate-float [animation-delay:320ms]"
                 />
               </div>
               <div className="pointer-events-none absolute -bottom-6 left-6 right-6 hidden md:block">
