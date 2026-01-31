@@ -41,6 +41,7 @@ export default function ContactForm() {
           onChange={(e) => setForm((s) => ({ ...s, name: e.target.value }))}
           placeholder="Your name"
           aria-label="Your name"
+          required
           className="bg-surface/50"
         />
         <Input
@@ -49,6 +50,7 @@ export default function ContactForm() {
           placeholder="Email address"
           type="email"
           aria-label="Email address"
+          required
           className="bg-surface/50"
         />
       </div>
@@ -57,6 +59,7 @@ export default function ContactForm() {
         onChange={(e) => setForm((s) => ({ ...s, message: e.target.value }))}
         placeholder="Tell me about your project or role…"
         aria-label="Message"
+        required
         className="bg-surface/50"
       />
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center">

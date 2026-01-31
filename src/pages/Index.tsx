@@ -460,11 +460,15 @@ const Index = () => {
             title="How I can help"
             subtitle="Practical analytics services focused on accuracy, clarity, and actionable outcomes." />
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map((s) => (
-              <Card key={s.title} className="glass gradient-border">
+            {services.map((s, idx) => (
+              <Card
+                key={s.title}
+                className="glass gradient-border transition-transform duration-300 hover:translate-y-[-2px]"
+                style={{ animationDelay: `${idx * 90}ms` }}
+              >
                 <CardHeader className="pb-3">
                   <CardTitle className="flex items-center gap-2 text-lg">
-                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl btn-gradient-soft border border-border/70">
+                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl btn-gradient-soft border border-border/70 shadow-[0_18px_60px_-40px_hsl(var(--shadow-color)/0.9)]">
                       <s.icon className="text-foreground" />
                     </span>
                     {s.title}
@@ -476,6 +480,18 @@ const Index = () => {
               </Card>
             ))}
           </div>
+
+          <div className="mt-8 flex flex-col items-start justify-between gap-3 rounded-2xl border border-border/70 bg-surface/40 p-5 md:flex-row md:items-center">
+            <div>
+              <p className="text-sm font-medium">Want a quick, clear analysis?</p>
+              <p className="mt-1 text-sm text-muted-foreground">
+                Share your dataset + goal — I’ll reply with a plan for cleaning, EDA, and visuals.
+              </p>
+            </div>
+            <Button asChild variant="hero" className="md:self-end">
+              <a href="#contact">Request a quote</a>
+            </Button>
+          </div>
         </RevealSection>
 
         {/* Contact */}
@@ -485,11 +501,17 @@ const Index = () => {
             title="Let’s connect"
             subtitle="Recruiters, collaborators, and clients — I’d love to hear from you." />
           <div className="grid gap-6 lg:grid-cols-2">
-            <Card className="glass gradient-border">
+            <Card className="glass gradient-border overflow-hidden">
               <CardHeader>
                 <CardTitle className="text-xl">Contact details</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4 text-sm">
+                <div className="rounded-2xl border border-border/70 bg-surface/40 p-4">
+                  <p className="text-sm font-medium">Quick note</p>
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    I’m open to internships, entry-level roles, and freelance analytics work. I respond as soon as possible.
+                  </p>
+                </div>
                 <a
                   className="flex items-center gap-3 rounded-xl border border-border/70 bg-surface/40 p-4 text-muted-foreground transition-colors hover:bg-accent/30"
                   href="mailto:rabijasima2@gmail.com"
@@ -517,16 +539,25 @@ const Index = () => {
                     Trichy, India
                   </span>
                 </div>
-                <Button asChild variant="soft" className="w-full">
-                  <a href="#contact" aria-label="LinkedIn Jasima Jasmine">
-                    <Linkedin />
-                    LinkedIn: Jasima Jasmine
-                  </a>
-                </Button>
+
+                <div className="grid gap-3 sm:grid-cols-2">
+                  <Button asChild variant="soft" className="w-full">
+                    <a href="mailto:rabijasima2@gmail.com" aria-label="Email Jasima Jasmine">
+                      <Mail />
+                      Email
+                    </a>
+                  </Button>
+                  <Button asChild variant="soft" className="w-full">
+                    <a href="#contact" aria-label="LinkedIn Jasima Jasmine">
+                      <Linkedin />
+                      LinkedIn
+                    </a>
+                  </Button>
+                </div>
               </CardContent>
             </Card>
 
-            <Card className="glass gradient-border">
+            <Card className="glass gradient-border overflow-hidden">
               <CardHeader>
                 <CardTitle className="text-xl">Send a message</CardTitle>
               </CardHeader>
