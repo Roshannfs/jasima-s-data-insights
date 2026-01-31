@@ -34,6 +34,7 @@ import {
 import { useEffect, useMemo, useRef } from "react";
 import { useReveal } from "@/hooks/use-reveal";
 import { motion, useReducedMotion } from "framer-motion";
+import MotionReveal from "@/components/portfolio/MotionReveal";
 
 const experiences: ExperienceItem[] = [
   {
@@ -403,44 +404,49 @@ const Index = () => {
             subtitle="I combine strong programming basics with practical analytics skills — focusing on clean workflows, reliable results, and readable visuals."
           />
           <div className="grid gap-6 md:grid-cols-2">
-            <Card className="glass gradient-border">
-              <CardHeader>
-                <CardTitle className="text-xl">Programming & Tools</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <SkillBar label="Python" level={82} />
-                <SkillBar label="Java" level={70} />
-                <SkillBar label="C / C++" level={66} />
-                <SkillBar label="Git / GitHub" level={72} />
-                <SkillBar label="VS Code" level={80} />
+            <MotionReveal delay={0.02}>
+              <Card className="glass gradient-border">
+                <CardHeader>
+                  <CardTitle className="text-xl">Programming & Tools</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <SkillBar label="Python" level={82} />
+                  <SkillBar label="Java" level={70} />
+                  <SkillBar label="C / C++" level={66} />
+                  <SkillBar label="Git / GitHub" level={72} />
+                  <SkillBar label="VS Code" level={80} />
 
-                <div className="pt-2">
-                  <p className="text-xs font-medium tracking-[0.16em] text-muted-foreground">HABITS</p>
-                  <p className="mt-2 text-sm text-muted-foreground">
-                    Version-controlled work, clear documentation, and repeatable analysis steps.
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-            <Card className="glass gradient-border">
-              <CardHeader>
-                <CardTitle className="text-xl">Data & Analytics</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <SkillBar label="Data Analysis" level={84} />
-                <SkillBar label="Data Visualization" level={78} />
-                <SkillBar label="Excel" level={80} />
-                <SkillBar label="Machine Learning" level={68} />
-                <SkillBar label="TensorFlow (Basic)" level={55} />
+                  <div className="pt-2">
+                    <p className="text-xs font-medium tracking-[0.16em] text-muted-foreground">HABITS</p>
+                    <p className="mt-2 text-sm text-muted-foreground">
+                      Version-controlled work, clear documentation, and repeatable analysis steps.
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+            </MotionReveal>
 
-                <div className="pt-2">
-                  <p className="text-xs font-medium tracking-[0.16em] text-muted-foreground">FOCUS</p>
-                  <p className="mt-2 text-sm text-muted-foreground">
-                    Clear charts, clean datasets, and insights that answer real questions.
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
+            <MotionReveal delay={0.08}>
+              <Card className="glass gradient-border">
+                <CardHeader>
+                  <CardTitle className="text-xl">Data & Analytics</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <SkillBar label="Data Analysis" level={84} />
+                  <SkillBar label="Data Visualization" level={78} />
+                  <SkillBar label="Excel" level={80} />
+                  <SkillBar label="Machine Learning" level={68} />
+                  <SkillBar label="TensorFlow (Basic)" level={55} />
+
+                  <div className="pt-2">
+                    <p className="text-xs font-medium tracking-[0.16em] text-muted-foreground">FOCUS</p>
+                    <p className="mt-2 text-sm text-muted-foreground">
+                      Clear charts, clean datasets, and insights that answer real questions.
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+            </MotionReveal>
           </div>
         </RevealSection>
 
@@ -460,22 +466,34 @@ const Index = () => {
             title="Projects with a purpose"
             subtitle="I like building insight-first dashboards and visual stories — the kind that help people decide faster." />
           <div className="grid gap-6 md:grid-cols-2">
-            <ProjectCard
-              title="Real Estate Data App (Flutter)"
-              description="A dashboard concept for property analytics — focused on trend discovery, comparison, and quick KPIs."
-              tools={["Flutter", "Dashboard UI", "Analytics", "Visualization"]}
-              highlights={["KPI-first layout for faster scanning", "Trend and comparison views for decision making", "Premium dark UI with clear visual hierarchy"]}
-              outcome="Delivered a clean, insight-led dashboard design that makes market patterns easy to read."
-              imageSrc={projectRealEstate}
-            />
-            <ProjectCard
-              title="TrendForge"
-              description="A trend analysis + visualization concept that emphasizes readability, comparison, and narrative clarity."
-              tools={["Trend Analysis", "Visualization", "KPIs", "Dashboard Thinking"]}
-              highlights={["Readable chart system (lines, heatmaps, KPIs)", "Designed for quick comparisons", "Story-first visuals with subtle premium polish"]}
-              outcome="Created a modern visual language for trend storytelling with high clarity and minimal clutter."
-              imageSrc={projectTrendForge}
-            />
+            <MotionReveal delay={0.02}>
+              <ProjectCard
+                title="Real Estate Data App (Flutter)"
+                description="A dashboard concept for property analytics — focused on trend discovery, comparison, and quick KPIs."
+                tools={["Flutter", "Dashboard UI", "Analytics", "Visualization"]}
+                highlights={[
+                  "KPI-first layout for faster scanning",
+                  "Trend and comparison views for decision making",
+                  "Premium dark UI with clear visual hierarchy",
+                ]}
+                outcome="Delivered a clean, insight-led dashboard design that makes market patterns easy to read."
+                imageSrc={projectRealEstate}
+              />
+            </MotionReveal>
+            <MotionReveal delay={0.08}>
+              <ProjectCard
+                title="TrendForge"
+                description="A trend analysis + visualization concept that emphasizes readability, comparison, and narrative clarity."
+                tools={["Trend Analysis", "Visualization", "KPIs", "Dashboard Thinking"]}
+                highlights={[
+                  "Readable chart system (lines, heatmaps, KPIs)",
+                  "Designed for quick comparisons",
+                  "Story-first visuals with subtle premium polish",
+                ]}
+                outcome="Created a modern visual language for trend storytelling with high clarity and minimal clutter."
+                imageSrc={projectTrendForge}
+              />
+            </MotionReveal>
           </div>
         </RevealSection>
 
@@ -496,37 +514,37 @@ const Index = () => {
             subtitle="Practical analytics services focused on accuracy, clarity, and actionable outcomes." />
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((s, idx) => (
-              <Card
-                key={s.title}
-                className="glass gradient-border transition-transform duration-300 hover:translate-y-[-2px]"
-                style={{ animationDelay: `${idx * 90}ms` }}
-              >
-                <CardHeader className="pb-3">
-                  <CardTitle className="flex items-center gap-2 text-lg">
-                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl btn-gradient-soft border border-border/70 shadow-[0_18px_60px_-40px_hsl(var(--shadow-color)/0.9)]">
-                      <s.icon className="text-foreground" />
-                    </span>
-                    {s.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground">{s.desc}</p>
-                </CardContent>
-              </Card>
+              <MotionReveal key={s.title} delay={idx * 0.06}>
+                <Card className="glass gradient-border transition-transform duration-300 hover:translate-y-[-2px]">
+                  <CardHeader className="pb-3">
+                    <CardTitle className="flex items-center gap-2 text-lg">
+                      <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl btn-gradient-soft border border-border/70 shadow-[0_18px_60px_-40px_hsl(var(--shadow-color)/0.9)]">
+                        <s.icon className="text-foreground" />
+                      </span>
+                      {s.title}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground">{s.desc}</p>
+                  </CardContent>
+                </Card>
+              </MotionReveal>
             ))}
           </div>
 
-          <div className="mt-8 flex flex-col items-start justify-between gap-3 rounded-2xl border border-border/70 bg-surface/40 p-5 md:flex-row md:items-center">
-            <div>
-              <p className="text-sm font-medium">Want a quick, clear analysis?</p>
-              <p className="mt-1 text-sm text-muted-foreground">
-                Share your dataset + goal — I’ll reply with a plan for cleaning, EDA, and visuals.
-              </p>
+          <MotionReveal delay={0.15}>
+            <div className="mt-8 flex flex-col items-start justify-between gap-3 rounded-2xl border border-border/70 bg-surface/40 p-5 md:flex-row md:items-center">
+              <div>
+                <p className="text-sm font-medium">Want a quick, clear analysis?</p>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  Share your dataset + goal — I’ll reply with a plan for cleaning, EDA, and visuals.
+                </p>
+              </div>
+              <Button asChild variant="hero" className="md:self-end">
+                <a href="#contact">Request a quote</a>
+              </Button>
             </div>
-            <Button asChild variant="hero" className="md:self-end">
-              <a href="#contact">Request a quote</a>
-            </Button>
-          </div>
+          </MotionReveal>
         </RevealSection>
 
         {/* Contact */}
@@ -536,70 +554,74 @@ const Index = () => {
             title="Let’s connect"
             subtitle="Recruiters, collaborators, and clients — I’d love to hear from you." />
           <div className="grid gap-6 lg:grid-cols-2">
-            <Card className="glass gradient-border overflow-hidden">
-              <CardHeader>
-                <CardTitle className="text-xl">Contact details</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4 text-sm">
-                <div className="rounded-2xl border border-border/70 bg-surface/40 p-4">
-                  <p className="text-sm font-medium">Quick note</p>
-                  <p className="mt-1 text-sm text-muted-foreground">
-                    I’m open to internships, entry-level roles, and freelance analytics work. I respond as soon as possible.
-                  </p>
-                </div>
-                <a
-                  className="flex items-center gap-3 rounded-xl border border-border/70 bg-surface/40 p-4 text-muted-foreground transition-colors hover:bg-accent/30"
-                  href="mailto:rabijasima2@gmail.com"
-                >
-                  <Mail className="text-foreground" />
-                  <span>
-                    <span className="text-foreground">Email</span>
-                    <br />
-                    rabijasima2@gmail.com
-                  </span>
-                </a>
-                <div className="flex items-center gap-3 rounded-xl border border-border/70 bg-surface/40 p-4 text-muted-foreground">
-                  <Phone className="text-foreground" />
-                  <span>
-                    <span className="text-foreground">Phone</span>
-                    <br />
-                    +91-9361896120
-                  </span>
-                </div>
-                <div className="flex items-center gap-3 rounded-xl border border-border/70 bg-surface/40 p-4 text-muted-foreground">
-                  <MapPin className="text-foreground" />
-                  <span>
-                    <span className="text-foreground">Location</span>
-                    <br />
-                    Trichy, India
-                  </span>
-                </div>
+            <MotionReveal delay={0.02}>
+              <Card className="glass gradient-border overflow-hidden">
+                <CardHeader>
+                  <CardTitle className="text-xl">Contact details</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4 text-sm">
+                  <div className="rounded-2xl border border-border/70 bg-surface/40 p-4">
+                    <p className="text-sm font-medium">Quick note</p>
+                    <p className="mt-1 text-sm text-muted-foreground">
+                      I’m open to internships, entry-level roles, and freelance analytics work. I respond as soon as possible.
+                    </p>
+                  </div>
+                  <a
+                    className="flex items-center gap-3 rounded-xl border border-border/70 bg-surface/40 p-4 text-muted-foreground transition-colors hover:bg-accent/30"
+                    href="mailto:rabijasima2@gmail.com"
+                  >
+                    <Mail className="text-foreground" />
+                    <span>
+                      <span className="text-foreground">Email</span>
+                      <br />
+                      rabijasima2@gmail.com
+                    </span>
+                  </a>
+                  <div className="flex items-center gap-3 rounded-xl border border-border/70 bg-surface/40 p-4 text-muted-foreground">
+                    <Phone className="text-foreground" />
+                    <span>
+                      <span className="text-foreground">Phone</span>
+                      <br />
+                      +91-9361896120
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-3 rounded-xl border border-border/70 bg-surface/40 p-4 text-muted-foreground">
+                    <MapPin className="text-foreground" />
+                    <span>
+                      <span className="text-foreground">Location</span>
+                      <br />
+                      Trichy, India
+                    </span>
+                  </div>
 
-                <div className="grid gap-3 sm:grid-cols-2">
-                  <Button asChild variant="soft" className="w-full">
-                    <a href="mailto:rabijasima2@gmail.com" aria-label="Email Jasima Jasmine">
-                      <Mail />
-                      Email
-                    </a>
-                  </Button>
-                  <Button asChild variant="soft" className="w-full">
-                    <a href="#contact" aria-label="LinkedIn Jasima Jasmine">
-                      <Linkedin />
-                      LinkedIn
-                    </a>
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
+                  <div className="grid gap-3 sm:grid-cols-2">
+                    <Button asChild variant="soft" className="w-full">
+                      <a href="mailto:rabijasima2@gmail.com" aria-label="Email Jasima Jasmine">
+                        <Mail />
+                        Email
+                      </a>
+                    </Button>
+                    <Button asChild variant="soft" className="w-full">
+                      <a href="#contact" aria-label="LinkedIn Jasima Jasmine">
+                        <Linkedin />
+                        LinkedIn
+                      </a>
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            </MotionReveal>
 
-            <Card className="glass gradient-border overflow-hidden">
-              <CardHeader>
-                <CardTitle className="text-xl">Send a message</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ContactForm />
-              </CardContent>
-            </Card>
+            <MotionReveal delay={0.08}>
+              <Card className="glass gradient-border overflow-hidden">
+                <CardHeader>
+                  <CardTitle className="text-xl">Send a message</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ContactForm />
+                </CardContent>
+              </Card>
+            </MotionReveal>
           </div>
         </RevealSection>
       </main>
