@@ -10,8 +10,8 @@ import SectionHeading from "@/components/portfolio/SectionHeading";
 import SkillBar from "@/components/portfolio/SkillBar";
 import HeroKpi from "@/components/portfolio/HeroKpi";
 import HeroParticles from "@/components/portfolio/HeroParticles";
-import HeroThreeIcons from "@/components/portfolio/HeroThreeIcons";
 import ResumeCard from "@/components/portfolio/ResumeCard";
+import FuturisticOverlay from "@/components/portfolio/FuturisticOverlay";
 import jasimaPortrait from "@/assets/jasima-portrait.jpg";
 import projectRealEstate from "@/assets/project-real-estate.jpg";
 import projectTrendForge from "@/assets/project-trendforge.jpg";
@@ -192,9 +192,7 @@ const Index = () => {
           <HeroParticles />
         </div>
         <DataBackdrop />
-        <div className="pointer-events-none absolute inset-0 hidden md:block">
-          <HeroThreeIcons />
-        </div>
+        <FuturisticOverlay className="hidden md:block" />
         <div className="container-portfolio relative section-pad pt-12 md:pt-20">
           <div className="grid items-center gap-10 md:grid-cols-2">
             <div className="space-y-6">
