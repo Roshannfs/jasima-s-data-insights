@@ -19,6 +19,13 @@ export default {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        surface: "hsl(var(--surface))",
+        "surface-2": "hsl(var(--surface-2))",
+        "brand-teal": "hsl(var(--brand-teal))",
+        "brand-rose": "hsl(var(--brand-rose))",
+        "brand-coral": "hsl(var(--brand-coral))",
+        "primary-glow": "hsl(var(--primary-glow))",
+        "shadow-color": "hsl(var(--shadow-color))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
@@ -64,6 +71,18 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
+        float: {
+          "0%, 100%": { transform: "translate3d(0, 0, 0)" },
+          "50%": { transform: "translate3d(0, -14px, 0)" },
+        },
+        drift: {
+          "0%": { transform: "translate3d(-10%, 0, 0)" },
+          "100%": { transform: "translate3d(10%, 0, 0)" },
+        },
+        shimmer: {
+          "0%": { backgroundPosition: "0% 50%" },
+          "100%": { backgroundPosition: "100% 50%" },
+        },
         "accordion-down": {
           from: {
             height: "0",
@@ -82,6 +101,9 @@ export default {
         },
       },
       animation: {
+        float: "float 7s ease-in-out infinite",
+        drift: "drift 18s ease-in-out infinite alternate",
+        shimmer: "shimmer 4s ease-in-out infinite alternate",
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
