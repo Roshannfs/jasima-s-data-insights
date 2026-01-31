@@ -11,7 +11,6 @@ import SkillBar from "@/components/portfolio/SkillBar";
 import HeroParticles from "@/components/portfolio/HeroParticles";
 import ResumeCard from "@/components/portfolio/ResumeCard";
 import FuturisticOverlay from "@/components/portfolio/FuturisticOverlay";
-import jasimaPortrait from "@/assets/jasima-portrait.jpg";
 import projectRealEstate from "@/assets/project-real-estate.jpg";
 import projectTrendForge from "@/assets/project-trendforge.jpg";
 import { cn } from "@/lib/utils";
@@ -249,7 +248,7 @@ const Index = () => {
                 )}
               >
                 <img
-                  src={jasimaPortrait}
+                  src="https://ibb.co/VcNxjrck"
                   alt="Professional portrait of Jasima Jasmine"
                   className="h-[420px] w-full object-cover md:h-[520px]"
                   loading="eager"
