@@ -25,7 +25,12 @@ export default function ProjectCard({
   className,
 }: Props) {
   return (
-    <Card className={cn("glass gradient-border overflow-hidden transition-transform duration-300 hover:translate-y-[-2px]", className)}>
+    <Card
+      className={cn(
+        "glass gradient-border futuristic-frame overflow-hidden transition-transform duration-300 hover:translate-y-[-2px]",
+        className,
+      )}
+    >
       <div className="relative">
         <img
           src={imageSrc}

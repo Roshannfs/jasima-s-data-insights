@@ -19,7 +19,7 @@ type Props = {
 
 export default function PortfolioNav({ className }: Props) {
   return (
-    <div className={cn("sticky top-0 z-40 border-b border-border/60 bg-background/60 backdrop-blur-xl", className)}>
+    <div className={cn("sticky top-0 z-40 border-b border-border/60 bg-background/60 backdrop-blur-xl relative", className)}>
       <div className="container-portfolio flex h-16 items-center justify-between">
         <a href="#home" className="font-semibold tracking-tight">
           <span className="gradient-text">Jasima</span> <span className="text-muted-foreground">Jasmine</span>
@@ -48,6 +48,16 @@ export default function PortfolioNav({ className }: Props) {
           </Button>
         </div>
       </div>
+
+      {/* Ambient futuristic scanline */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute left-1/2 top-0 h-px w-[1200px] -translate-x-1/2 opacity-60 [background:linear-gradient(90deg,transparent,hsl(var(--brand-teal)/0.55),hsl(var(--brand-rose)/0.45),transparent)]"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute left-1/2 top-0 h-px w-[520px] -translate-x-1/2 opacity-35 animate-scan [background:linear-gradient(90deg,transparent,hsl(var(--brand-teal)/0.7),transparent)]"
+      />
     </div>
   );
 }

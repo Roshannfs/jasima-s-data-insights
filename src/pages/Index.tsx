@@ -277,7 +277,7 @@ const Index = () => {
               transition={{ duration: 0.75, ease: [0.2, 0.8, 0.2, 1] }}
               className="md:col-span-2"
             >
-              <Card className="glass gradient-border">
+               <Card className="glass gradient-border futuristic-frame">
                 <CardHeader>
                   <CardTitle className="text-xl">Profile</CardTitle>
                 </CardHeader>
@@ -326,7 +326,7 @@ const Index = () => {
               viewport={{ once: true, amount: 0.22 }}
               transition={{ duration: 0.75, delay: 0.08, ease: [0.2, 0.8, 0.2, 1] }}
             >
-              <Card className="glass gradient-border">
+               <Card className="glass gradient-border futuristic-frame">
                 <CardHeader>
                   <CardTitle className="text-xl">Education</CardTitle>
                 </CardHeader>
@@ -363,7 +363,7 @@ const Index = () => {
           />
           <div className="grid gap-6 md:grid-cols-2">
             <MotionReveal delay={0.02}>
-              <Card className="glass gradient-border">
+               <Card className="glass gradient-border futuristic-frame">
                 <CardHeader>
                   <CardTitle className="text-xl">Programming & Tools</CardTitle>
                 </CardHeader>
@@ -385,7 +385,7 @@ const Index = () => {
             </MotionReveal>
 
             <MotionReveal delay={0.08}>
-              <Card className="glass gradient-border">
+               <Card className="glass gradient-border futuristic-frame">
                 <CardHeader>
                   <CardTitle className="text-xl">Data & Analytics</CardTitle>
                 </CardHeader>
@@ -473,7 +473,7 @@ const Index = () => {
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((s, idx) => (
               <MotionReveal key={s.title} delay={idx * 0.06}>
-                <Card className="glass gradient-border transition-transform duration-300 hover:translate-y-[-2px]">
+                 <Card className="glass gradient-border futuristic-frame transition-transform duration-300 hover:translate-y-[-2px]">
                   <CardHeader className="pb-3">
                     <CardTitle className="flex items-center gap-2 text-lg">
                       <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl btn-gradient-soft border border-border/70 shadow-[0_18px_60px_-40px_hsl(var(--shadow-color)/0.9)]">
@@ -491,7 +491,7 @@ const Index = () => {
           </div>
 
           <MotionReveal delay={0.15}>
-            <div className="mt-8 flex flex-col items-start justify-between gap-3 rounded-2xl border border-border/70 bg-surface/40 p-5 md:flex-row md:items-center">
+             <div className="futuristic-frame mt-8 flex flex-col items-start justify-between gap-3 rounded-2xl border border-border/70 bg-surface/40 p-5 md:flex-row md:items-center">
               <div>
                 <p className="text-sm font-medium">Want a quick, clear analysis?</p>
                 <p className="mt-1 text-sm text-muted-foreground">
@@ -513,7 +513,7 @@ const Index = () => {
             subtitle="Recruiters, collaborators, and clients — I’d love to hear from you." />
           <div className="grid gap-6 lg:grid-cols-2">
             <MotionReveal delay={0.02}>
-              <Card className="glass gradient-border overflow-hidden">
+               <Card className="glass gradient-border futuristic-frame overflow-hidden">
                 <CardHeader>
                   <CardTitle className="text-xl">Contact details</CardTitle>
                 </CardHeader>
@@ -571,7 +571,7 @@ const Index = () => {
             </MotionReveal>
 
             <MotionReveal delay={0.08}>
-              <Card className="glass gradient-border overflow-hidden">
+               <Card className="glass gradient-border futuristic-frame overflow-hidden">
                 <CardHeader>
                   <CardTitle className="text-xl">Send a message</CardTitle>
                 </CardHeader>
