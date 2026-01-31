@@ -36,31 +36,51 @@ const experiences: ExperienceItem[] = [
     role: "Artificial Intelligence Intern",
     company: "Marchello Tech, Trichy",
     duration: "Internship",
-    highlights: ["Explored real-world AI workflows", "Supported model experimentation and evaluation", "Presented insights to mentors"],
+    highlights: [
+      "Assisted in building and testing early-stage AI solutions",
+      "Prepared datasets and compared results across experiments",
+      "Summarized findings clearly for mentor review",
+    ],
   },
   {
     role: "Data Science & ML Intern",
     company: "Deyo Infotech",
     duration: "Internship",
-    highlights: ["Worked with datasets end-to-end", "Built baseline ML models", "Improved data quality with preprocessing"],
+    highlights: [
+      "Worked end-to-end: cleaning, analysis, and feature preparation",
+      "Built baseline ML models and evaluated using common metrics",
+      "Improved data quality with structured preprocessing steps",
+    ],
   },
   {
     role: "Machine Learning with Python Intern",
     company: "Training Program",
     duration: "Training",
-    highlights: ["Practiced ML pipelines in Python", "Evaluated models with key metrics", "Documented learnings and results"],
+    highlights: [
+      "Practiced ML workflows in Python (data → model → evaluation)",
+      "Compared models using accuracy/precision-recall style metrics",
+      "Documented results for repeatable learning",
+    ],
   },
   {
     role: "Digital Marketing Intern",
     company: "Dnyx Company",
     duration: "3 months",
-    highlights: ["Analyzed campaign performance", "Interpreted engagement trends", "Assisted with reporting and optimization"],
+    highlights: [
+      "Tracked campaign metrics and summarized performance",
+      "Interpreted engagement patterns to suggest improvements",
+      "Supported reporting and iterative optimization",
+    ],
   },
   {
     role: "Data Analyst Intern",
     company: "VDart",
     duration: "July–August 2025",
-    highlights: ["Created clear insights from raw data", "Built visual summaries for stakeholders", "Supported data-driven decisions"],
+    highlights: [
+      "Converted raw datasets into clear, decision-ready insights",
+      "Built visual summaries for quick stakeholder understanding",
+      "Supported data-driven recommendations with concise reporting",
+    ],
   },
 ];
 
@@ -250,23 +270,49 @@ const Index = () => {
         <RevealSection id="about" className="container-portfolio">
           <SectionHeading
             eyebrow="ABOUT"
-            title="Curiosity meets clarity"
-            subtitle="I enjoy exploring complex datasets, uncovering hidden patterns, and transforming raw numbers into meaningful stories that support confident decision-making."
+            title="Curiosity, structure, and impact"
+            subtitle="I enjoy the full data journey — from messy raw files to clean visuals and practical insights that support confident decisions."
           />
           <div className="grid gap-6 md:grid-cols-3">
             <Card className="glass gradient-border md:col-span-2">
               <CardHeader>
-                <CardTitle className="text-xl">Bio</CardTitle>
+                <CardTitle className="text-xl">Profile</CardTitle>
               </CardHeader>
               <CardContent className="space-y-3 text-muted-foreground">
                 <p>
-                  I’m an aspiring Data Analyst and an AI & Data Science student who loves working with real-world data — cleaning it,
-                  visualizing it, and drawing insights that are easy to understand.
+                  I’m Jasima Jasmine — an aspiring Data Analyst and AI & Data Science student who loves exploring complex datasets,
+                  spotting patterns, and turning raw information into a story people can act on.
                 </p>
                 <p>
-                  My goal is to grow into a professional who can support teams with data-driven decision making through strong analysis,
-                  clear dashboards, and thoughtful experimentation.
+                  I focus on strong fundamentals: clean data, thoughtful analysis, clear visuals, and simple explanations. I’m actively
+                  growing through internships and projects that build real-world confidence.
                 </p>
+
+                <div className="flex flex-wrap gap-2 pt-2">
+                  {[
+                    "Data cleaning",
+                    "EDA",
+                    "Dashboard thinking",
+                    "Visualization",
+                    "ML basics",
+                    "Insight writing",
+                  ].map((chip) => (
+                    <span
+                      key={chip}
+                      className="rounded-full border border-border/70 bg-surface/50 px-3 py-1 text-xs text-muted-foreground"
+                    >
+                      {chip}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="mt-5 rounded-2xl border border-border/70 bg-surface/40 p-4">
+                  <p className="text-sm font-medium text-foreground">Career objective</p>
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    To contribute to data-driven decision making by delivering accurate analysis, clear dashboards, and actionable insights
+                    — while continuously improving my technical and analytical skills.
+                  </p>
+                </div>
               </CardContent>
             </Card>
 
@@ -285,6 +331,13 @@ const Index = () => {
                     <span className="text-foreground">Expected Graduation:</span> 2026
                   </p>
                 </div>
+
+                <div className="mt-5 rounded-2xl border border-border/70 bg-surface/40 p-4">
+                  <p className="text-sm font-medium text-foreground">What I’m building</p>
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    Strong foundations in analytics + practical project work focused on clarity and business-ready outputs.
+                  </p>
+                </div>
               </CardContent>
             </Card>
           </div>
@@ -294,8 +347,8 @@ const Index = () => {
         <RevealSection id="skills" className="container-portfolio">
           <SectionHeading
             eyebrow="SKILLS"
-            title="Tools I’m growing with"
-            subtitle="A blend of programming fundamentals and analytics skills — with a focus on clean workflows and clear visuals."
+            title="Skills that ship insights"
+            subtitle="I combine strong programming basics with practical analytics skills — focusing on clean workflows, reliable results, and readable visuals."
           />
           <div className="grid gap-6 md:grid-cols-2">
             <Card className="glass gradient-border">
@@ -308,6 +361,13 @@ const Index = () => {
                 <SkillBar label="C / C++" level={66} />
                 <SkillBar label="Git / GitHub" level={72} />
                 <SkillBar label="VS Code" level={80} />
+
+                <div className="pt-2">
+                  <p className="text-xs font-medium tracking-[0.16em] text-muted-foreground">HABITS</p>
+                  <p className="mt-2 text-sm text-muted-foreground">
+                    Version-controlled work, clear documentation, and repeatable analysis steps.
+                  </p>
+                </div>
               </CardContent>
             </Card>
             <Card className="glass gradient-border">
@@ -320,6 +380,13 @@ const Index = () => {
                 <SkillBar label="Excel" level={80} />
                 <SkillBar label="Machine Learning" level={68} />
                 <SkillBar label="TensorFlow (Basic)" level={55} />
+
+                <div className="pt-2">
+                  <p className="text-xs font-medium tracking-[0.16em] text-muted-foreground">FOCUS</p>
+                  <p className="mt-2 text-sm text-muted-foreground">
+                    Clear charts, clean datasets, and insights that answer real questions.
+                  </p>
+                </div>
               </CardContent>
             </Card>
           </div>
@@ -329,8 +396,8 @@ const Index = () => {
         <RevealSection id="experience" className="container-portfolio">
           <SectionHeading
             eyebrow="EXPERIENCE"
-            title="Internships & training"
-            subtitle="Hands-on roles that helped me practice analysis, reporting, and building real-world confidence." />
+            title="Experience that builds confidence"
+            subtitle="Internships and training where I practiced analysis, reporting, and delivering work that’s easy for stakeholders to use." />
           <ExperienceTimeline items={experiences} />
         </RevealSection>
 
@@ -338,21 +405,23 @@ const Index = () => {
         <RevealSection id="projects" className="container-portfolio">
           <SectionHeading
             eyebrow="PROJECTS"
-            title="Portfolio highlights"
-            subtitle="A snapshot of the kind of data products I enjoy building — from dashboards to trend discovery." />
+            title="Projects with a purpose"
+            subtitle="I like building insight-first dashboards and visual stories — the kind that help people decide faster." />
           <div className="grid gap-6 md:grid-cols-2">
             <ProjectCard
               title="Real Estate Data App (Flutter)"
-              description="Dashboard design for property analytics, helping users explore pricing trends and market patterns."
-              tools={["Flutter", "Dashboard UI", "Analytics"]}
-              outcome="Designed a clean, insight-first dashboard layout for property metrics."
+              description="A dashboard concept for property analytics — focused on trend discovery, comparison, and quick KPIs."
+              tools={["Flutter", "Dashboard UI", "Analytics", "Visualization"]}
+              highlights={["KPI-first layout for faster scanning", "Trend and comparison views for decision making", "Premium dark UI with clear visual hierarchy"]}
+              outcome="Delivered a clean, insight-led dashboard design that makes market patterns easy to read."
               imageSrc={projectRealEstate}
             />
             <ProjectCard
               title="TrendForge"
-              description="Trend analysis and visualization concept — focusing on clarity, comparison, and fast insights."
-              tools={["Visualization", "Trend Analysis", "KPIs"]}
-              outcome="Created a premium, readable visual style for trend storytelling."
+              description="A trend analysis + visualization concept that emphasizes readability, comparison, and narrative clarity."
+              tools={["Trend Analysis", "Visualization", "KPIs", "Dashboard Thinking"]}
+              highlights={["Readable chart system (lines, heatmaps, KPIs)", "Designed for quick comparisons", "Story-first visuals with subtle premium polish"]}
+              outcome="Created a modern visual language for trend storytelling with high clarity and minimal clutter."
               imageSrc={projectTrendForge}
             />
           </div>
